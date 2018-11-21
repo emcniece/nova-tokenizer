@@ -1,0 +1,46 @@
+version: '2'
+
+
+services:
+  tokenizer:
+    build: ./
+    image: emcniece/nova-tokenizer
+    command:
+    - node
+    - index.js
+    ports:
+    - 7000:7000
+    environment:
+      TOKENIZER_HOSTNAME: tokenizer
+      BACKEND_HOSTNAME: backend
+      DATAPROVIDER_HOSTNAME: dataprovider
+      REDIS_HOSTNAME: redis
+
+  backend:
+    build: ./
+    image: emcniece/nova-tokenizer
+    command:
+    - node
+    - backend.js
+    ports:
+    - 7001:7001
+    environment:
+      TOKENIZER_HOSTNAME: tokenizer
+      BACKEND_HOSTNAME: backend
+      DATAPROVIDER_HOSTNAME: dataprovider
+
+  dataprovider:
+    build: ./
+    image: emcniece/nova-tokenizer
+    command:
+    - node
+    - dataprovider.js
+    ports:
+    - 7002:7002
+    environment:
+      TOKENIZER_HOSTNAME: tokenizer
+      BACKEND_HOSTNAME: backend
+      DATAPROVIDER_HOSTNAME: dataprovider
+
+  redis:
+    image: redis:4-alpine

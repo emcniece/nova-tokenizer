@@ -4,13 +4,25 @@
   "description": "",
   "main": "./node_modules/.bin/nodemon",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:tokenizer": "./node_modules/.bin/nodemon -w index.js --exec node index.js",
+    "dev:backend": "./node_modules/.bin/nodemon -w backend.js --exec node backend.js",
+    "dev:dataprovider": "./node_modules/.bin/nodemon -w dataprovider.js --exec node dataprovider.js",
+    "dev:redis": "docker run --name tokenizer-redis --rm -p 6379:6379 redis:4-alpine",
+    "tokenizer": "node index.js",
+    "backend": "node backend.js",
+    "dataprovider": "node dataprovider.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-redis": "^1.1.4",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"
