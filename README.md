@@ -8,7 +8,7 @@ Setup can be done by leveraging Docker, or by installing and running the scripts
 - Redis: port `6379`
 - Mock DataProvider: port `7002`
 - Mock Backend: port `7001`
-- Tokenizer: port `7001`
+- Tokenizer: port `7000`
 
 ### Quick Setup
 
