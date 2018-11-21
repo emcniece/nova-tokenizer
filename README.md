@@ -17,7 +17,7 @@ Setup can be done by leveraging Docker, or by installing and running the scripts
 ```sh
 docker pull redis:4-alpine
 docker pull emcniece/nova-tokenizer:latest
-docker-compose up
+docker-compose up --no-build
 ```
 
 Proceed to [Intended Operation](#intended-operation).
